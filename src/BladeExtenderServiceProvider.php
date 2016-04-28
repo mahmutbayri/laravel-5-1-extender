@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 
 class BladeExtenderServiceProvider extends ServiceProvider
 {
-
     protected $directives;
 
     /**

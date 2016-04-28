@@ -1,8 +1,7 @@
 <?php
 
-use Mockery as m;
-
 use Illuminate\View\Compilers\BladeCompiler;
+use Mockery as m;
 
 class DirectiveGeneratorTest extends PHPUnit_Framework_TestCase
 {
@@ -20,7 +19,7 @@ class DirectiveGeneratorTest extends PHPUnit_Framework_TestCase
 test
 @continue
 @endfor';
-$expected = '<?php for($i = 0; $i < 10; $i++): ?>
+        $expected = '<?php for($i = 0; $i < 10; $i++): ?>
 test
 <?php continue; ?>
 <?php endfor; ?>';
@@ -32,7 +31,6 @@ test
     {
         $compiler = new BladeCompiler($this->getFiles(), __DIR__);
         $generator = with(new \Bayri\LaravelExtender\Blade\DirectiveGenerator($compiler))->generate();
-
 
         $string = '@for ($i = 0; $i < 10; $i++)
 test
