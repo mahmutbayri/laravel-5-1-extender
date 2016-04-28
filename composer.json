@@ -1,0 +1,33 @@
+
+{
+  "name": "mahmutbayri/laravel-5-1-extender",
+  "description": "This package extends some features of Laravel 5.1 Framework",
+  "license": "MIT",
+  "keywords":[
+    "laravel 5.1",
+    "extender"
+  ],
+  "homepage":"https://github.com/mahmutbayri/laravel-5-1-extender",
+  "authors": [
+    {
+      "name": "Mahmut Bayri",
+      "email": "mahmutbayri@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev":{
+    "phpunit/phpunit": "~4.4",
+    "mockery/mockery": "~0.9.4",
+    "illuminate/support": "5.1.*",
+    "illuminate/view": "5.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bayri\\LaravelExtender\\": "src"
+    }
+  },
+  "autoload-dev": {
+  }
+}
