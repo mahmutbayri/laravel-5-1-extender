@@ -2,8 +2,8 @@
 
 namespace Bayri\LaravelExtender;
 
-use Illuminate\Support\ServiceProvider;
 use Bayri\LaravelExtender\Blade\DirectiveGenerator;
+use Illuminate\Support\ServiceProvider;
 
 class BladeExtenderServiceProvider extends ServiceProvider
 {

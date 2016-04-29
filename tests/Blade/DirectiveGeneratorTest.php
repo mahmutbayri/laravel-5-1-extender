@@ -1,8 +1,7 @@
 <?php
 
-use Mockery as m;
-use Illuminate\View\Compilers;
 use Illuminate\View\Compilers\BladeCompiler;
+use Mockery as m;
 
 class DirectiveGeneratorTest extends PHPUnit_Framework_TestCase
 {
@@ -11,7 +10,7 @@ class DirectiveGeneratorTest extends PHPUnit_Framework_TestCase
      */
     protected $compiler;
 
-    function setUp()
+    public function setUp()
     {
         parent::setUp();
 
