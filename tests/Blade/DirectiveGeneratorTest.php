@@ -1,7 +1,6 @@
 <?php
 
 use Mockery as m;
-
 use Illuminate\View\Compilers;
 use Illuminate\View\Compilers\BladeCompiler;
 
@@ -31,7 +30,7 @@ class DirectiveGeneratorTest extends PHPUnit_Framework_TestCase
 test
 @continue
 @endfor';
-$expected = '<?php for($i = 0; $i < 10; $i++): ?>
+        $expected = '<?php for($i = 0; $i < 10; $i++): ?>
 test
 <?php continue; ?>
 <?php endfor; ?>';
