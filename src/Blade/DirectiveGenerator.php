@@ -77,7 +77,7 @@ class DirectiveGenerator
             'unset' => function ($expression) {
                 return "<?php unset{$expression}; ?>";
             },
-            /**
+            /*
              * Compile the include statements into valid PHP.
              */
             'includeIf' => function ($expression) {
@@ -87,7 +87,7 @@ class DirectiveGenerator
 
                 return "<?php if (\$__env->exists($expression)) echo \$__env->make($expression, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>";
             },
-            /**
+            /*
              * Compile the if-isset statements into valid PHP.
              *
              * @param  string  $expression
@@ -96,14 +96,14 @@ class DirectiveGenerator
             'isset' => function ($expression) {
                 return "<?php if(isset{$expression}): ?>";
             },
-            /**
+            /*
              * Compile the end-isset statements into valid PHP.
              *
              * @return string
              */
             'endisset' => function () {
                 return '<?php endif; ?>';
-            }
+            },
         ];
 
         foreach ($directives as $directiveName => $callable) {
