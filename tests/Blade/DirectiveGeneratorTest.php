@@ -58,7 +58,7 @@ breeze
 sneeze
 @endcan';
 
-        $expected = '<?php if (Gate::check(\'update\', [$post])): ?>
+        $expected = '<?php if (app(\'Illuminate\Contracts\Auth\Access\Gate\')->check(\'update\', [$post])): ?>
 breeze
 <?php elseif (app(\'Illuminate\Contracts\Auth\Access\Gate\')->check(\'delete\', [$post])): ?>
 sneeze
@@ -74,7 +74,7 @@ breeze
 sneeze
 @endcannot';
 
-        $expected = '<?php if (Gate::denies(\'update\', [$post])): ?>
+        $expected = '<?php if (app(\'Illuminate\Contracts\Auth\Access\Gate\')->denies(\'update\', [$post])): ?>
 breeze
 <?php elseif (app(\'Illuminate\Contracts\Auth\Access\Gate\')->denies(\'delete\', [$post])): ?>
 sneeze
@@ -112,6 +112,23 @@ breeze
         $string = '@endphp';
         $expected = ' ?>';
         $this->assertEquals($expected, $this->compiler->compileString($string));
+    }
+
+    public function testIfStatementsAreCompiled()
+    {
+        $string = '@isset ($test)
+breeze
+@endisset';
+        $expected = '<?php if(isset($test)): ?>
+breeze
+<?php endif; ?>';
+        $this->assertEquals($expected, $this->compiler->compileString($string));
+    }
+
+    public function testIncludeIfsAreCompiled()
+    {
+        $this->assertEquals('<?php if ($__env->exists(\'foo\')) echo $__env->make(\'foo\', array_except(get_defined_vars(), array(\'__data\', \'__path\')))->render(); ?>', $this->compiler->compileString('@includeIf(\'foo\')'));
+        $this->assertEquals('<?php if ($__env->exists(name(foo))) echo $__env->make(name(foo), array_except(get_defined_vars(), array(\'__data\', \'__path\')))->render(); ?>', $this->compiler->compileString('@includeIf(name(foo))'));
     }
 
     /**
